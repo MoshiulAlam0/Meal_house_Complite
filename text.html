@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        mark{
+            background-color: rgb(255, 230, 0);
+            padding: 1px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <input id="input" type="text">
+    <p id="p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident at, sit sunt, veritatis dolorem rerum ex earum alias dignissimos cumque eaque dolor mollitia maiores? Eligendi dignissimos dolor aut odit voluptates.</p>
+    <script>
+        const field= document.getElementById('input');
+        field.addEventListener('keyup', function(e){
+            const p = document.getElementById('p');
+            const ex = new RegExp(`${e.target.value}`, "gi"); 
+            console.log(ex);  
+            const contant = p.innerText;
+            const repleace = contant.replace(ex, match => `<mark>${match}</mark>`);
+            console.log(contant);
+            console.log(repleace);
+            p.innerHTML = repleace;
+            // p.innerHTML = p.textContent.replace(ex, match => `<mark>${match}</mark>`)
+        })
+        
+    </script>
+    
+
+    <button onclick="setcolor(event)"><i  class="fa-solid fa-heart love" id="like"></i></button>
+    <script>
+    function setcolor(event){
+        console.log(event.target.style.color);
+if ((event.target.style.color = 'red') !== true){
+    console.log('if');
+    event.target.style.color = 'red';
+}
+else{
+    console.log('else');
+    event.target.style.color = 'gray';
+}
+    }
+    </script>
+</body>
+</html>
